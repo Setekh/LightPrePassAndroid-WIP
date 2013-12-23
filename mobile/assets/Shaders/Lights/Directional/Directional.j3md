@@ -1,0 +1,33 @@
+MaterialDef Simple {
+
+    MaterialParameters {
+        Texture2D NormalBuffer;
+        Texture2D DepthBuffer;
+
+        Color Color
+        Vector3 Direction
+        Vector3 FrustumCorner
+    }
+    
+    Technique {
+        VertexShader GLSL100:   Shaders/Lights/Light.vert
+        FragmentShader GLSL100: Shaders/Lights/Directional/Directional.frag
+
+        WorldParameters {
+            ViewProjectionMatrixInverse
+            ViewMatrix
+            Resolution
+            FrustumNearFar
+            Resolution
+            ViewMatrix
+            FrustrumNearFar
+        }
+
+
+        RenderState {
+          DepthTest true
+          DepthWrite false
+          Blend Additive
+        }
+    }
+}

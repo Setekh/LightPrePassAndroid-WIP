@@ -1,0 +1,22 @@
+MaterialDef Simple {
+    MaterialParameters {
+        Texture2D LightBuffer
+        Texture2D NormalBuffer
+        Vector3 LightDirection : 0.45 1.0 0.5
+    }
+
+    Technique {
+        VertexShader GLSL100:   Shaders/Resolve.vert
+        FragmentShader GLSL100: Shaders/Resolve.frag
+
+        WorldParameters {
+          Resolution
+          ViewMatrix
+        }
+
+        RenderState{
+          DepthTest false
+          DepthWrite false
+        }
+    }
+}

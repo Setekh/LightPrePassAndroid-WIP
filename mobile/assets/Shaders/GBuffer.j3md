@@ -1,0 +1,32 @@
+MaterialDef Simple {
+    MaterialParameters {
+        Color Diffuse
+        Texture2D LightBuffer
+    }
+
+    Technique {
+        VertexShader GLSL100:   Shaders/Shaded.vert
+        FragmentShader GLSL100: Shaders/Shaded.frag
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+            NormalMatrix
+        }
+
+        Defines {
+        }
+    }
+
+    Technique GBuffer {
+        VertexShader GLSL100:   Shaders/GBuffer.vert
+        FragmentShader GLSL100: Shaders/GBuffer.frag
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+            NormalMatrix
+        }
+
+        Defines {
+        }
+    }
+}
