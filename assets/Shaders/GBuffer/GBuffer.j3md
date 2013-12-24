@@ -1,0 +1,17 @@
+MaterialDef Geometry-Buffer {
+    MaterialParameters {
+    }
+
+    Technique {
+        VertexShader GLSL100:   Shaders/GBuffer/GBuffer.vert
+        FragmentShader GLSL100: Shaders/GBuffer/GBuffer.frag
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+            NormalMatrix
+        }
+
+        Defines {
+        }
+    }
+}

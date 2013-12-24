@@ -16,17 +16,4 @@ MaterialDef Simple {
         Defines {
         }
     }
-
-    Technique GBuffer {
-        VertexShader GLSL100:   Shaders/GBuffer.vert
-        FragmentShader GLSL100: Shaders/GBuffer.frag
-
-        WorldParameters {
-            WorldViewProjectionMatrix
-            NormalMatrix
-        }
-
-        Defines {
-        }
-    }
 }

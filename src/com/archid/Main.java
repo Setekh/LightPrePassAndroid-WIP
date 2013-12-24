@@ -19,10 +19,6 @@ import com.jme3.system.AppSettings;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * test
- * @author normenhansen
- */
 public class Main extends SimpleApplication {
 
     public static void main(String[] args) {
@@ -73,7 +69,7 @@ public class Main extends SimpleApplication {
     public void simpleRender(RenderManager rm) {
         if(d.isInitialized() && boop) {
             //Material mat = new Material(assetManager, "Common/MatDefs/Light/Lighting.j3md");
-            Material mat = new Material(assetManager, "Shaders/GBuffer.j3md");
+            Material mat = new Material(assetManager, "Shaders/Shaded.j3md");
             mat.setTexture("LightBuffer", d.getLight());
             mat.setColor("Diffuse", ColorRGBA.Red);
 

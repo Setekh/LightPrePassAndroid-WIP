@@ -6,8 +6,8 @@ MaterialDef Simple {
     }
 
     Technique {
-        VertexShader GLSL100:   Shaders/Resolve.vert
-        FragmentShader GLSL100: Shaders/Resolve.frag
+        VertexShader GLSL100:   Shaders/Lights/Light.vert
+        FragmentShader GLSL100: Shaders/Lights/Debug/Resolve.frag
 
         WorldParameters {
           Resolution

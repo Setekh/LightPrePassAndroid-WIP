@@ -38,6 +38,7 @@ public class Deferred implements SceneProcessor {
 
     private FrameBuffer Geometry, Light;
     private Texture2D depth, normals, light;
+    private Material GBufferMaterial;
     private Picture quad;
 
     private boolean isInitialized;
@@ -67,7 +68,7 @@ public class Deferred implements SceneProcessor {
         lightViewPort.attachScene(lightNode);
         lightViewPort.setOutputFrameBuffer(Light);
 
-        Material mat = new Material(app.getAssetManager(), "Shaders/Resolve.j3md");
+        Material mat = new Material(app.getAssetManager(), "Shaders/Lights/Debug/Resolve.j3md");
         mat.setTexture("LightBuffer", light);
         mat.setTexture("NormalBuffer", normals);
         
@@ -81,6 +82,7 @@ public class Deferred implements SceneProcessor {
             
             lightNode.attachChild(l);
         }
+        GBufferMaterial = new Material(app.getAssetManager(), "Shaders/GBuffer/GBuffer.j3md");
         lightQueue.clear();
         
         isInitialized = true;
@@ -127,9 +129,9 @@ public class Deferred implements SceneProcessor {
         renderer.setFrameBuffer(Geometry);
         renderer.clearBuffers(true, true, true);
 
-        renderManager.setForcedTechnique("GBuffer");
+        renderManager.setForcedMaterial(GBufferMaterial);
         renderManager.renderViewPortQueues(viewPort, false);
-        renderManager.setForcedTechnique(null);
+        renderManager.setForcedMaterial(null);
         
         renderer.setFrameBuffer(Light);
         renderer.clearBuffers(true, false, false);
